@@ -9,12 +9,22 @@ export type ticketContextType = {
   category: string;
   date: string;
 };
+export const ticketContextDefaultValue: ticketContextType = {
+  pri: 0,
+  progress: 0,
+  projectType: "",
+  status: "",
+  category: "",
+  date: "",
+};
 
 export type priType = {
   pri: number;
 };
 
-export const TicketContext = createContext<ticketContextType | null>(null);
+export const TicketContext = createContext<ticketContextType>(
+  ticketContextDefaultValue
+);
 
 const TicketProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
