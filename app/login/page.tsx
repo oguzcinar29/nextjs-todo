@@ -27,7 +27,11 @@ export default function Login() {
       } else {
         res
           .json()
-          .then((id) => localStorage.setItem("user", JSON.stringify(id.id)));
+          .then(
+            (id) =>
+              typeof window !== "undefined" &&
+              localStorage.setItem("user", JSON.stringify(id.id))
+          );
         router.push("/");
         router.refresh();
       }

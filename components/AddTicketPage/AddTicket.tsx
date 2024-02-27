@@ -13,7 +13,9 @@ export default function AddTicket() {
   const { pri, progress, category, projectType } =
     useContext<ticketContextType>(TicketContext);
 
-  const currentUser = JSON.parse(localStorage.getItem("user") || "{}");
+  const currentUser =
+    typeof window !== "undefined" &&
+    JSON.parse(localStorage.getItem("user") || "{}");
 
   async function handleSubmit(e: any) {
     e.preventDefault();

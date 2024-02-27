@@ -33,7 +33,9 @@ export default function ShowTicket(props: PropsItem) {
   const router = useRouter();
   const [deleted, setDeleted] = React.useState<boolean>(false);
 
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const user =
+    typeof window !== "undefined" &&
+    JSON.parse(localStorage.getItem("user") || "{}");
 
   const deleteTicket = async (e: any) => {
     e.preventDefault();

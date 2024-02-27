@@ -13,7 +13,10 @@ export default function Navbar() {
   const [loop, setLoop] = useState();
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (localStorage.getItem("user") !== null) {
+      if (
+        typeof window !== "undefined" &&
+        localStorage.getItem("user") !== null
+      ) {
         setIsLoggedIn(true);
       }
     }, 1000);
