@@ -13,10 +13,11 @@ const StyledRating = styled(Rating)({
   },
 });
 
-export default function ShowPrio(props: {
+interface PropsTypes {
   priority: number;
-  username: string;
-}) {
+}
+
+export default function ShowPrio(props: PropsTypes) {
   return (
     <div>
       <Box
@@ -27,7 +28,7 @@ export default function ShowPrio(props: {
         <StyledRating
           readOnly
           name="customized-color"
-          defaultValue={parseInt(props.priority)}
+          defaultValue={props.priority}
           getLabelText={(value: number) =>
             `${value} Heart${value !== 1 ? "s" : ""}`
           }

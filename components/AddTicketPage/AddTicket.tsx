@@ -13,6 +13,8 @@ export default function AddTicket() {
   const { pri, progress, category, projectType } =
     useContext<ticketContextType>(TicketContext);
 
+  const currentUser = JSON.parse(localStorage.getItem("user") || "{}");
+
   async function handleSubmit(e: any) {
     e.preventDefault();
     try {
@@ -26,7 +28,7 @@ export default function AddTicket() {
           priority: pri,
           progress: progress,
           status: category,
-          userId: JSON.parse(localStorage.getItem("user"))._id,
+          userId: currentUser,
         }),
       });
       if (!res.ok) {
@@ -37,10 +39,7 @@ export default function AddTicket() {
       console.log(err);
     }
   }
-  console.log(
-    typeof window !== "undefined" &&
-      typeof JSON.parse(localStorage.getItem("user"))._id
-  );
+
   return (
     <div className="text-white pt-3">
       <form

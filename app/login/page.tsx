@@ -5,11 +5,6 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { useRouter } from "next/navigation";
 
-type userInfoType = {
-  email: string;
-  password: string;
-};
-
 export default function Login() {
   const [userInfo, setUserInfo] = useState({
     email: "",

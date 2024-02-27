@@ -4,9 +4,10 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { TicketContext } from "@/context/TicketContext";
+import { TicketContext, ticketContextType } from "@/context/TicketContext";
 export default function SelectProjectType() {
-  const { projectType, setProjectType } = React.useContext(TicketContext);
+  const { projectType, setProjectType } =
+    React.useContext<ticketContextType>(TicketContext);
 
   const handleChange = (event: SelectChangeEvent) => {
     setProjectType(event.target.value as string);

@@ -15,7 +15,7 @@ type PropsItem = {
   status: string;
   _id: string;
   userId: string;
-  createdAt: Date;
+  createdAt: string;
 };
 
 export default function ShowTicket(props: PropsItem) {
@@ -33,12 +33,7 @@ export default function ShowTicket(props: PropsItem) {
   const router = useRouter();
   const [deleted, setDeleted] = React.useState<boolean>(false);
 
-  const [user, setUser] = React.useState<any | null>(
-    (typeof window !== "undefined" &&
-      JSON.parse(localStorage.getItem("user"))?._id) ||
-      null
-  );
-  console.log(user);
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   const deleteTicket = async (e: any) => {
     e.preventDefault();
@@ -66,7 +61,7 @@ export default function ShowTicket(props: PropsItem) {
       <div className="flex flex-col gap-3  bg-sky-800 p-3 rounded-md">
         <div className="flex justify-between ">
           <ShowPrio priority={priority} />
-          {userId === user && (
+          {userId === user?._id && (
             <button onClick={deleteTicket}>
               <CloseIcon className="text-red-300" />
             </button>

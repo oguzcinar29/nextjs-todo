@@ -4,10 +4,14 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { TicketContext } from "@/context/TicketContext";
+import {
+  TicketContext,
+  priType,
+  ticketContextType,
+} from "@/context/TicketContext";
 
 export default function Priorty() {
-  const { setPri } = React.useContext(TicketContext);
+  const { setPri } = React.useContext<ticketContextType>(TicketContext);
 
   return (
     <div className="text-white">
@@ -20,7 +24,7 @@ export default function Priorty() {
           defaultValue="female"
           name="radio-buttons-group"
           className="flex"
-          onChange={(e, value) => setPri(value as number)}
+          onChange={(e, value) => setPri(parseInt(value))}
         >
           <div className="flex">
             <FormControlLabel value={1} control={<Radio />} label="1" />

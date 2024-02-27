@@ -8,7 +8,12 @@ export type ticketContextType = {
   status: string;
   category: string;
   date: string;
+  setPri: any;
+  setProgress: any;
+  setProjectType: any;
+  setCategory: any;
 };
+
 export const ticketContextDefaultValue: ticketContextType = {
   pri: 0,
   progress: 0,
@@ -16,6 +21,10 @@ export const ticketContextDefaultValue: ticketContextType = {
   status: "",
   category: "",
   date: "",
+  setPri: null,
+  setProgress: null,
+  setProjectType: null,
+  setCategory: null,
 };
 
 export type priType = {
