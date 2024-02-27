@@ -10,7 +10,7 @@ type userInfoType = {
   password: string;
 };
 
-export default function page() {
+export default function Login() {
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
