@@ -7,7 +7,9 @@ export default function Home() {
   const [data, setData] = useState<any[] | null>(null);
   const getAllTickets = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/ticket");
+      const res = await fetch(
+        "https://nextjs-todo-omega.vercel.app/api/ticket"
+      );
       if (!res.ok) {
         throw new Error("Failed to fetch all tickets");
       }
