@@ -10,8 +10,7 @@ export default function AddTicket() {
   const [title, setTitle] = useState<string>("");
   const [descr, setDescr] = useState<string>("");
   const router = useRouter();
-  const { pri, progress, category, projectType } =
-    useContext<ticketContextType>(TicketContext);
+  const { pri, progress, category, projectType } = useContext(TicketContext);
 
   async function handleSubmit(e: any) {
     e.preventDefault();
