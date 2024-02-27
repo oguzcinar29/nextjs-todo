@@ -1,10 +1,10 @@
 "use client";
 import ShowTicket from "@/components/ShowTickets/ShowTicket";
+import { apiURL } from "@/url";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const apiURL = process.env.API_URI;
   const [data, setData] = useState<any[] | null>(null);
   const getAllTickets = async () => {
     try {
