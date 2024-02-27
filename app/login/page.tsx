@@ -11,15 +11,11 @@ type userInfoType = {
 };
 
 export default function page() {
-  const [userInfo, setUserInfo] = useState<userInfoType | null>({
+  const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
   });
   const [err, setErr] = useState<string | null>("");
-
-  const [user, setUser] = useState<any>(
-    (typeof window !== "undefined" && localStorage.getItem("user")) || null
-  );
 
   const router = useRouter();
   const signInSubmit = async (e: any) => {
