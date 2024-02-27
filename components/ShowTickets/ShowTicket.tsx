@@ -36,16 +36,13 @@ export default function ShowTicket(props: PropsItem) {
   const user =
     typeof window !== "undefined" &&
     JSON.parse(localStorage.getItem("user") || "{}");
-
+  const apiURL = process.env.API_URI;
   const deleteTicket = async (e: any) => {
     e.preventDefault();
     try {
-      const res = await fetch(
-        `https://nextjs-todo-omega.vercel.app/api/ticket/${_id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const res = await fetch(`${apiURL}/api/ticket/${_id}`, {
+        method: "DELETE",
+      });
       if (!res.ok) {
         throw new Error("Failed to delete ticket");
       } else {

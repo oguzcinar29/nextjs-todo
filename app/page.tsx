@@ -4,12 +4,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  const apiURL = process.env.API_URI;
   const [data, setData] = useState<any[] | null>(null);
   const getAllTickets = async () => {
     try {
-      const res = await fetch(
-        "https://nextjs-todo-omega.vercel.app/api/ticket"
-      );
+      const res = await fetch(`${apiURL}/api/ticket`);
       if (!res.ok) {
         throw new Error("Failed to fetch all tickets");
       }

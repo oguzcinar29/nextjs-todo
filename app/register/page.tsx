@@ -19,11 +19,11 @@ export default function Register() {
   const router = useRouter();
 
   const [error, setError] = useState<string | null>("");
-
+  const apiURL = process.env.API_URI;
   const signInSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/api/user`, {
+      const res = await fetch(`${apiURL}/api/user`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

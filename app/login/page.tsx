@@ -11,13 +11,13 @@ export default function Login() {
     password: "",
   });
   const [err, setErr] = useState<string | null>("");
-
+  const apiURL = process.env.API_URI;
   const router = useRouter();
   const signInSubmit = async (e: any) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/user/login`, {
+      const res = await fetch(`${apiURL}/api/user/login`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(userInfo),

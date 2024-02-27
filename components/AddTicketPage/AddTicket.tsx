@@ -13,6 +13,8 @@ export default function AddTicket() {
   const { pri, progress, category, projectType } =
     useContext<ticketContextType>(TicketContext);
 
+  const apiURL = process.env.API_URI;
+
   const currentUser =
     typeof window !== "undefined" &&
     JSON.parse(localStorage.getItem("user") || "{}");
@@ -20,7 +22,7 @@ export default function AddTicket() {
   async function handleSubmit(e: any) {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/api/ticket", {
+      const res = await fetch(`${apiURL}/api/ticket`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
