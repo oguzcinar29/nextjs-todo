@@ -6,14 +6,13 @@ import Progress from "./Progress";
 import Status from "./Status";
 import { TicketContext, ticketContextType } from "@/context/TicketContext";
 import { useRouter } from "next/navigation";
+import { apiURL } from "@/url";
 export default function AddTicket() {
   const [title, setTitle] = useState<string>("");
   const [descr, setDescr] = useState<string>("");
   const router = useRouter();
   const { pri, progress, category, projectType } =
     useContext<ticketContextType>(TicketContext);
-
-  const apiURL = process.env.API_URI;
 
   const currentUser =
     typeof window !== "undefined" &&

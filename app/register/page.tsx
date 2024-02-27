@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import { apiURL } from "@/url";
 type userInfoType = {
   username: string;
   email: string;
@@ -19,7 +20,7 @@ export default function Register() {
   const router = useRouter();
 
   const [error, setError] = useState<string | null>("");
-  const apiURL = process.env.API_URI;
+
   const signInSubmit = async (e: any) => {
     e.preventDefault();
     try {

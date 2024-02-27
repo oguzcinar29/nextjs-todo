@@ -4,6 +4,7 @@ import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { useRouter } from "next/navigation";
+import { apiURL } from "@/url";
 
 export default function Login() {
   const [userInfo, setUserInfo] = useState({
@@ -11,7 +12,7 @@ export default function Login() {
     password: "",
   });
   const [err, setErr] = useState<string | null>("");
-  const apiURL = process.env.API_URI;
+
   const router = useRouter();
   const signInSubmit = async (e: any) => {
     e.preventDefault();

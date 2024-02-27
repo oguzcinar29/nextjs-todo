@@ -5,6 +5,7 @@ import ShowPrio from "./ShowPrio";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import { apiURL } from "@/url";
 
 type PropsItem = {
   title: string;
@@ -36,7 +37,7 @@ export default function ShowTicket(props: PropsItem) {
   const user =
     typeof window !== "undefined" &&
     JSON.parse(localStorage.getItem("user") || "{}");
-  const apiURL = process.env.API_URI;
+
   const deleteTicket = async (e: any) => {
     e.preventDefault();
     try {
